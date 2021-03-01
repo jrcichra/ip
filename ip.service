@@ -1,0 +1,9 @@
+[Unit]
+Description=Simple IP address server
+After=network.target
+
+[Service]
+ExecStart=/home/justin/git/ip/ip.py
+
+[Install]
+WantedBy=multi-user.target
