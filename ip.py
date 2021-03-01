@@ -22,6 +22,9 @@ def gen(ip, org, url):
 def org(ip):
     url = f"https://ipapi.co/{ip}"
     res = requests.get(f"{url}/org")
+    if res.upper() == 'GOOGLEWIFI':
+        # Yes I know this is dumb
+        res = 'STARLINK'
     return res.text, f"{url}/json"
 
 
