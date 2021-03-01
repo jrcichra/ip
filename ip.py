@@ -52,7 +52,7 @@ class MyBaseHttpHandler(BaseHTTPRequestHandler):
             self.send_header('Content-type', 'text/plain')
             self.end_headers()
             self.wfile.write(ip.encode())
-        elif self.path == f"/isp" or self.path == f"/geo":
+        elif self.path == f"/isp" or self.path == f"/org":
             self.send_response(200)
             self.send_header('Content-type', 'text/plain')
             self.end_headers()
