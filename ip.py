@@ -1,8 +1,10 @@
 #!/usr/bin/python3
 import time
 from http.server import BaseHTTPRequestHandler, HTTPServer
-
+import os
 import requests
+
+BASE_PATH = os.path.dirname(os.path.realpath(__file__))
 
 
 def gen(ip, org, url):
@@ -38,6 +40,13 @@ class MyBaseHttpHandler(BaseHTTPRequestHandler):
             o, url = org(ip)
             print(f"Request from: {ip}, location: {o}, full url: {url}")
             self.wfile.write(gen(ip, o, url).encode())
+        elif self.path == f"/favicon.ico":
+            print("gimme faicon")
+            self.send_response(200)
+            self.send_header('Content-type', 'image/x-icon')
+            self.end_headers()
+            with open(f'{BASE_PATH}/favicon.ico', 'rb') as f:
+                self.wfile.write(f.read())
 
 
 if __name__ == '__main__':
