@@ -24,7 +24,7 @@ def org(ip):
     res = requests.get(f"{url}/org").text
     if res.upper() == 'GOOGLEWIFI':
         # Yes I know this is dumb
-        res = 'STARLINK'
+        res = f'STARLINK ( API says {res} )'
     return res, f"{url}/json"
 
 
