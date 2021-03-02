@@ -43,7 +43,7 @@ def org(ip):
             res = f'STARLINK ( API says {res} )'
         # insert into the cache if the request is good
         if "error" in res:
-            print("Skipping cache, got error: {res}")
+            print(f"Skipping cache, got error: {res}")
         else:
             r.hmset(str_ip, {"value": res})
             r.expire(str_ip, CACHE_TIME)
