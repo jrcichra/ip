@@ -6,7 +6,7 @@ import requests
 import redis
 
 BASE_PATH = os.path.dirname(os.path.realpath(__file__))
-CACHE_TIME = 60 * 60 * 24  # 1 day
+CACHE_TIME = 60 * 60 * 24 * 7  # 1 week
 
 # spawn redis connection
 r = redis.Redis(host="redis", decode_responses=True)
